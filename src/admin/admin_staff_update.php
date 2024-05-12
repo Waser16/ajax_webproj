@@ -4,19 +4,18 @@
     require('connection.php');
     #echo print_r($_SESSION['user']);
 
-    $post_id = $_GET['post_id'];
-    $q_text = "SELECT * FROM posts WHERE id = '{$post_id}'";
+    $id = $_GET['id'];
+    $q_text = "SELECT * FROM staff WHERE id = '{$id}'";
     $q = mysqli_query($db, $q_text);
     
     $mas = mysqli_fetch_array($q);
 
-    $post_id = $mas['id'];
-    $post_title = $mas['title'];
-    $post_date = $mas['post_date'];
-    $image_path = $mas['image_path'];
-    $post_text = $mas['post_text'];
-    $author_id = $mas['author'];
-    $important = $mas['important'];
+    $last_name = $mas['last_name'];
+    $first_name = $mas['first_name'];
+    $login = $mas['login'];
+    $password = $mas['password'];
+    $email = $mas['email'];
+    $position = $mas['position'];
 
 ?>
 
@@ -32,17 +31,16 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/header.css" type="text/css">
-        <link rel="stylesheet" href="css/admin_update.css" type="text/css">
-        <link rel="stylesheet" href="css/footer.css" type="text/css">
+        <link rel="stylesheet" href="../../css/header.css" type="text/css">
+        <link rel="stylesheet" href="../../css/admin_staff_update.css" type="text/css">
+        <link rel="stylesheet" href="../../css/footer.css" type="text/css">
     <title>Main</title>
 </head>
 
 <body>
-
     <!-- ХЕДЕР -->
     <?php
-        require('header.php')
+    require('header.php')
     ?>
 
     <!-- Основная часть сайта-->
@@ -51,53 +49,67 @@
             <div class="content row">
                 <!-- часть с новостями-->
                 <div class="create col-8">
-                    <h4>Добавление статьи</h4>
-                    <form method="POST" action="admin_update_check.php" enctype="multipart/form-data">
+                    <h4>Изменение данных сотрудника</h4>
+                    <form method="POST" action="admin_staff_update_check.php">
                         <div class='field-name row'>
                             <div class='left-part col-2'>
-                                <p>Название:</p>
+                                <p>Фамилия:</p>
                             </div>
                             <div class='input-part col-10'>
-                                <textarea name="post-title" class="post-title-input"><?php echo $post_title;?></textarea>
+                                <input name="last-name" type="text" value='<?php echo $last_name?>'></input>
                             </div>
                         </div>
                         <div class='field-name row'>
                             <div class='left-part col-2'>
-                                <p>Картинка:</p>
+                                <p>Имя:</p>
                             </div>
                             <div class='input-part col-10'>
-                                <input type="file" name="pic-path">
+                                <input type="text" name="first-name" value='<?php echo $first_name?>'>
                             </div>
                         </div>
                         <div class='field-name row'>
                             <div class='left-part col-2'>
-                                <p>Статья важная?</p>
+                                <p>Логин:</p>
                             </div>
                             <div class='input-part col-10'>
-                                <input type="radio" class='post-input-radio' name='important' <?php if ($important == '1') echo "checked";?> value='1'>Да   
-                                <input type="radio" class="post-input-radio" name='important' <?php if ($important == '0') echo "checked";?> value='0'>Нет
+                                <input type="text" name="login" value='<?php echo $login?>'>
                             </div>
                         </div>
                         <div class='field-name row'>
                             <div class='left-part col-2'>
-                                <p>Текст:</p>
+                                <p>Пароль:</p>
                             </div>
                             <div class='input-part col-10'>
-                                <textarea class='post-text-input' name="post-text"><?php echo $post_text;?></textarea>
+                                <input type="text" name="password" value='<?php echo $password?>'>
+                            </div>
+                        </div>
+                        <div class='field-name row'>
+                            <div class='left-part col-2'>
+                                <p>Email:</p>
+                            </div>
+                            <div class='input-part col-10'>
+                                <input type="text" name="email" value='<?php echo $email?>'>
+                            </div>
+                        </div>
+                        <div class='field-name row'>
+                            <div class='left-part col-2'>
+                                <p>Должность:</p>
+                            </div>
+                            <div class='input-part col-10'>
+                                <input type="text" name="position" value='<?php echo $position?>'>
                             </div>
                         </div>
                         <div class='field-name row'>
                             <div class="left-part col-2"></div>
                             <div class="input-part col-10">
-                                <input type="hidden" name="author_id" value="<?php echo $_SESSION['user']['id'];?>">
-                                <input type="hidden" name="post_id" value='<?php echo $post_id;?>'>
-                                <input class="post-submit" type="submit" value="Изменить статью">
+                                <input type="hidden" name="id" value="<?php echo $id;?>">
+                                <input class="post-submit" type="submit" value="Обновить данные сотрудника">
                             </div>
                         </div>
                     </form>
                 </div>
-               <!-- профиль автора-->
-               <div class="content-important col-4">
+                <!-- профиль автора-->
+                <div class="content-important col-4">
                     <h4>Профиль</h4>
                     <?php
                         require('connection.php');
@@ -138,7 +150,8 @@
             </div>
         </div>
     </div>
-    
+
+
     <?php
         require('footer.php');
     ?>

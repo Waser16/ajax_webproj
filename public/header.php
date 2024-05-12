@@ -18,12 +18,12 @@
                         <?php
                             if (!$_SESSION['user']) {
                                 echo "<li>
-                                        <a href='autherization.php'>Войти</a>
+                                        <a href='../src/registration/autherization.php'>Войти</a>
                                     </li>";
                             }
                             else {
                                 echo "<li>
-                                        <a href='admin.php'>Админ панель</a>
+                                        <a href='../src/admin/admin.php'>Админ панель</a>
                                     </li>";
 
                                 echo "<li>
