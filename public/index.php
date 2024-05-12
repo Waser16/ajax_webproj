@@ -1,7 +1,7 @@
 <?php
     session_start();
     #unset($_SESSION['user']);
-    require('connection.php');
+    $db = include 'connection.php';
     #echo print_r($_SESSION['user']);
 ?>
 
