@@ -54,7 +54,7 @@
                         </div>
                     </div>
                 ", $mas['title'], $mas['first_name'], $mas['last_name'], $mas['post_date'], 
-                        $mas['image_path'], $mas['post_text']);
+                        '../'.$mas['image_path'], $mas['post_text']);
                 ?>
                 </div>
                 <!-- часть с ВАЖНЫМИ новостями-->

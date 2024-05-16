@@ -18,7 +18,7 @@
                         <?php
                             if (!$_SESSION['user']) {
                                 echo "<li>
-                                        <a href='../src/registration/autherization.php'>Войти</a>
+                                        <a href='../src/registration/authorization.php'>Войти</a>
                                     </li>";
                             }
                             else {

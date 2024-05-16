@@ -37,7 +37,7 @@
                 <div class="left-space col-4">
                 </div>
                 <div class="registration-form-containter col-4">
-                    <form class="registration-form" method="POST" action="autherization_check.php">
+                    <form class="registration-form" method="POST" action="authorization_check.php">
                         <label>Логин</label><br>
                         <input id="register-input" name='email' type="text" placeholder="example@mail.ru"><br>
                         <label>Пароль</label><br>

@@ -17,7 +17,7 @@
             $q_ins = mysqli_query($db, $q_text);
             if ($q_ins) {
                 $_SESSION['error_msg'] = "Регистрация прошла успешно";
-                header("Location: autherization.php");    
+                header("Location: authorization.php");
             }
         }
         else {

@@ -326,15 +326,24 @@
             <!-- часть с важными новостями-->
             <div class="content-important col-4">
                 <h4>Важные новости</h4>
-                <div class="important row">
-                    <p>Нерешенные вопросы, оставшиеся от ненужной саги FIA / Wolff</p>
-                </div>
-                <div class="important row">
-                    <p>Как новый дизайн кокпита Формулы-1 поможет избежать проблем с жарой в Катаре</p>
-                </div>
-                <div class="important row">
-                    <p>FIA формализует запрет на аэротестирование Формулы-1 в 2026 году</p>
-                </div>
+                <?php
+                require('connection.php');
+                $important_posts_q_text = "SELECT * 
+                                                    FROM posts p
+                                                    WHERE important = 1
+                                                    ORDER BY post_date DESC 
+                                                    LIMIT 3";
+                $important_posts_q = mysqli_query($db, $important_posts_q_text);
+                while ($mas = mysqli_fetch_array($important_posts_q)) {
+                    printf(
+                        "<div class='important row'>
+                                    <a href='post.php?post_id=%s'>
+                                        %s
+                                    </a>
+                                </div>    
+                                ", $mas['id'], $mas['title']);
+                }
+                ?>
             </div>
         </div>
     </div>

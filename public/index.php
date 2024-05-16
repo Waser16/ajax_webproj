@@ -50,7 +50,7 @@
                         while ($mas = mysqli_fetch_array($posts_q)) {
                             printf("<div class='post row'>
                                 <div class='post-image col-2'>
-                                    <img class='mx-auto d-block' src='%s_rr.jpg'}'>
+                                    <img class='mx-auto d-block' src='../images/%s_rr.jpg'>
                                 </div>
                                 <div class='post-text col-10'>
                                     <h5>
@@ -61,7 +61,7 @@
                                     <p>%s %s | %s</p>
                                 </div>
                             </div>
-                        ", $mas['image_path'], $mas['id'], $mas['title'], $mas['first_name'],
+                        ", '../'.$mas['image_path'], $mas['id'], $mas['title'], $mas['first_name'],
                             $mas['last_name'], $mas['post_date']);
                         }
 

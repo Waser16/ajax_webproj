@@ -22,7 +22,7 @@
     } 
     else {
         $_SESSION['is_auth'] = 'Проверьте введенные данные';
-        header("Location: autherization.php");
+        header("Location: authorization.php");
     }
 
 ?>
