@@ -61,7 +61,7 @@
                                     <p>%s %s | %s</p>
                                 </div>
                             </div>
-                        ", '../'.$mas['image_path'], $mas['id'], $mas['title'], $mas['first_name'],
+                        ", $mas['image_path'], $mas['id'], $mas['title'], $mas['first_name'],
                             $mas['last_name'], $mas['post_date']);
                         }
 

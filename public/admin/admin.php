@@ -1,7 +1,7 @@
 <?php
     session_start();
     #unset($_SESSION['user']);
-    require('connection.php');
+    require('../utils/connection.php');
     #echo print_r($_SESSION['user']);
 ?>
 
@@ -30,7 +30,7 @@
 
     <!-- ХЕДЕР -->
     <?php
-    require('header.php')
+    require('../utils/header.php')
     ?>
 
     <!-- Основная часть сайта-->
@@ -41,7 +41,7 @@
                 <div class="content-post col-8">
                     <h4>Панель для администрации</h4>
                     <?php
-                        require('connection.php');
+                        // require('connection.php');
 
                         if ($_SESSION['user']['position'] == 'админ') {
                             $posts_q_text = "SELECT p.image_path, p.id, p.title,
@@ -67,7 +67,7 @@
                         while ($mas = mysqli_fetch_array($posts_q)) {
                             printf("<div class='post row'>
                                 <div class='post-image col-2'>
-                                    <img class='mx-auto d-block' src='%s_rr.jpg'}'>
+                                    <img class='mx-auto d-block' src='../../images/%s_rr.jpg'}'>
                                 </div>
                                 <div class='post-text col-10'>
                                     <h5>
@@ -87,7 +87,7 @@
                 <div class="content-important col-4">
                     <h4>Профиль</h4>
                     <?php
-                        require('connection.php');
+                        //require('connection.php');
                         $author_profile_q_text = "SELECT COUNT(*) AS cnt,
                                                     MAX(post_date) as latest_post,
                                                     s.last_name, s.first_name
@@ -129,7 +129,7 @@
     </div>
 
     <?php
-        require('footer.php');
+        require('../utils/footer.php');
     ?>
 
 </body>

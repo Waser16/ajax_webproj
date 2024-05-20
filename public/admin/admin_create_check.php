@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('connection.php');
+require('../utils/connection.php');
 /*
 echo "<pre>";
 echo print_r($_POST);
@@ -19,9 +19,9 @@ $important = $_POST['important'];
 $author_id = $_POST['author_id'];
 $date = date("Y-m-d");
 
-$path = "images/" . $_FILES['pic-path']['name'];
+$path = '../../images/'.$_FILES['pic-path']['name'];
 move_uploaded_file($_FILES['pic-path']['tmp_name'], $path);
-$short_path = substr($path, 0, strlen($path) - 4);
+$short_path = substr($_FILES['pic-path']['name'], 0, strlen($path) - 4);
 
 $insert_post_q_text = "INSERT INTO `posts`(`title`, `post_date`, `image_path`, `post_text`, `author`, `important`)
      VALUES ('$post_title','$date','$short_path','$post_text','$author_id','$important')";

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include('connection.php');
+    include('../utils/connection.php');
 
     $post_id = $_GET['post_id'];
     $delete_q_text = "DELETE FROM posts WHERE id ='{$post_id}'";

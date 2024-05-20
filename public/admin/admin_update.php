@@ -1,7 +1,7 @@
 <?php
     session_start();
     #unset($_SESSION['user']);
-    require('connection.php');
+    require('../utils/connection.php');
     #echo print_r($_SESSION['user']);
 
     $post_id = $_GET['post_id'];
@@ -42,7 +42,7 @@
 
     <!-- ХЕДЕР -->
     <?php
-    require('header.php')
+    require('../utils/header.php')
     ?>
 
     <!-- Основная часть сайта-->
@@ -100,7 +100,7 @@
                <div class="content-important col-4">
                     <h4>Профиль</h4>
                     <?php
-                        require('connection.php');
+                        // require('connection.php');
                         $author_profile_q_text = "SELECT COUNT(*) AS cnt,
                                                     MAX(post_date) as latest_post,
                                                     s.last_name, s.first_name
@@ -140,7 +140,7 @@
     </div>
     
     <?php
-        require('footer.php');
+        require('../utils/footer.php');
     ?>
 
 

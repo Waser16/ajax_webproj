@@ -23,7 +23,7 @@
 
     <!-- ХЕДЕР -->
     <?php
-    require('header.php')
+    require('../utils/header.php')
     ?>
 
     <!-- Основная часть сайта-->
@@ -47,14 +47,14 @@
                     <p> %s %s | %s</p>
                     <div class='post row'>
                         <div class='post-image img-fluid'>
-                            <img src='%s_big.jpg'>
+                            <img src='../../images/%s_big.jpg'>
                         </div>
                         <div class='post-text'>
                             %s
                         </div>
                     </div>
                 ", $mas['title'], $mas['first_name'], $mas['last_name'], $mas['post_date'], 
-                        '../'.$mas['image_path'], $mas['post_text']);
+                        $mas['image_path'], $mas['post_text']);
                 ?>
                 </div>
                 <!-- часть с ВАЖНЫМИ новостями-->
