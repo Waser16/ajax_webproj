@@ -1,7 +1,7 @@
 <?php
     session_start();
     #unset($_SESSION['user']);
-    require('connection.php');
+    $db = include '../utils/connection.php';
     #echo print_r($_SESSION['user']);
 ?>
 
@@ -17,16 +17,16 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/header.css" type="text/css">
-    <link rel="stylesheet" href="../css/index.css" type="text/css">
-    <link rel="stylesheet" href="../css/footer.css" type="text/css">
+    <link rel="stylesheet" href="../../css/header.css" type="text/css">
+    <link rel="stylesheet" href="../../css/index.css" type="text/css">
+    <link rel="stylesheet" href="../../css/footer.css" type="text/css">
     <title>Main</title>
 </head>
 
 <body>
     <!-- ХЕДЕР -->
     <?php
-    require('header.php')
+    require('../utils/header.php')
     ?>
 
     <!-- Основная часть сайта-->
@@ -37,7 +37,7 @@
                 <div class="content-post col-8">
                     <h4> Последние публикации</h4>
                     <?php
-                        require('connection.php');
+                        // require('connection.php');
                         $posts_q_text = "SELECT p.image_path, p.id, p.title,
                                                 p.post_date, s.first_name,
                                                 s.last_name 
@@ -50,7 +50,7 @@
                         while ($mas = mysqli_fetch_array($posts_q)) {
                             printf("<div class='post row'>
                                 <div class='post-image col-2'>
-                                    <img class='mx-auto d-block' src='%s_rr.jpg'}'>
+                                    <img class='mx-auto d-block' src='../../images/%s_rr.jpg'>
                                 </div>
                                 <div class='post-text col-10'>
                                     <h5>
@@ -71,7 +71,7 @@
                 <div class="content-important col-4">
                     <h4>Важные новости</h4>
                     <?php
-                        require('connection.php');
+                        require('../utils/connection.php');
                         $important_posts_q_text = "SELECT *
                                                     FROM posts 
                                                     WHERE important = 1
@@ -95,7 +95,7 @@
 
     <!-- Футер -->
     <?php
-    require('footer.php')
+    require('../utils/footer.php')
     ?>
 
 </body>

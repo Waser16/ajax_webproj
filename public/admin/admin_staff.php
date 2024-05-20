@@ -1,7 +1,7 @@
 <?php
     session_start();
     #unset($_SESSION['user']);
-    require('connection.php');
+    require('../utils/connection.php');
     #echo print_r($_SESSION['user']);
 ?>
 
@@ -27,7 +27,7 @@
 
     <!-- ХЕДЕР -->
     <?php
-    require('header.php')
+    require('../utils/header.php')
     ?>
 
     <!-- Основная часть сайта-->
@@ -38,7 +38,7 @@
                 <div class="content-staff col-8">
                     <h4>Панель для администрации</h4>
                     <?php
-                        require('connection.php');
+                        // require('connection.php');
                         $staff_q_text = "SELECT * FROM staff";
                         $staff_q = mysqli_query($db, $staff_q_text);
                         while ($mas = mysqli_fetch_array($staff_q)) {
@@ -73,7 +73,7 @@
                 <div class="content-important col-4">
                     <h4>Профиль</h4>
                     <?php
-                        require('connection.php');
+                        // require('connection.php');
                         $author_profile_q_text = "SELECT COUNT(*) AS cnt,
                                                     MAX(post_date) as latest_post,
                                                     s.last_name, s.first_name
@@ -101,7 +101,7 @@
     </div>
 
     <?php
-    require('footer.php')
+    require('../utils/footer.php')
     ?>
 
 </body>

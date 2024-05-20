@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require('connection.php');
+    require('../utils/connection.php');
 
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -18,11 +18,11 @@
         'login' => $mas['login'],
         'position' => $mas['position']
         ];
-        header("Location: index.php");
+        header("Location: ../main/index.php");
     } 
     else {
         $_SESSION['is_auth'] = 'Проверьте введенные данные';
-        header("Location: autherization.php");
+        header("Location: authorization.php");
     }
 
 ?>

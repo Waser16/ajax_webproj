@@ -13,9 +13,9 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/header.css" type="text/css">
-    <link rel="stylesheet" href="../css/championship.css" type="text/css">
-    <link rel="stylesheet" href="../css/footer.css" type="text/css">
+    <link rel="stylesheet" href="../../css/header.css" type="text/css">
+    <link rel="stylesheet" href="../../css/championship.css" type="text/css">
+    <link rel="stylesheet" href="../../css/footer.css" type="text/css">
     <title>Чемпионат</title>
 </head>
 
@@ -26,7 +26,7 @@
 
     <!-- ХЕДЕР -->
     <?php
-    require('header.php')
+    require('../utils/header.php')
     ?>
 
     <!-- Основная часть сайта-->
@@ -37,7 +37,7 @@
             <div class="content-schedule col-8">
                 <h4>Формула 1, сезон 2023: Календарь чемпионата</h4>
                 <div class="championship-image">
-                    <img src="../images/f1_logo_big.jpg">
+                    <img src="../../images/f1_logo_big.jpg">
                 </div>
                 <div class="schedule-table-сontainer">
                     <table class="schedule-table">
@@ -326,21 +326,30 @@
             <!-- часть с важными новостями-->
             <div class="content-important col-4">
                 <h4>Важные новости</h4>
-                <div class="important row">
-                    <p>Нерешенные вопросы, оставшиеся от ненужной саги FIA / Wolff</p>
-                </div>
-                <div class="important row">
-                    <p>Как новый дизайн кокпита Формулы-1 поможет избежать проблем с жарой в Катаре</p>
-                </div>
-                <div class="important row">
-                    <p>FIA формализует запрет на аэротестирование Формулы-1 в 2026 году</p>
-                </div>
+                <?php
+                require('../utils/connection.php');
+                $important_posts_q_text = "SELECT * 
+                                                    FROM posts p
+                                                    WHERE important = 1
+                                                    ORDER BY post_date DESC 
+                                                    LIMIT 3";
+                $important_posts_q = mysqli_query($db, $important_posts_q_text);
+                while ($mas = mysqli_fetch_array($important_posts_q)) {
+                    printf(
+                        "<div class='important row'>
+                                    <a href='post.php?post_id=%s'>
+                                        %s
+                                    </a>
+                                </div>    
+                                ", $mas['id'], $mas['title']);
+                }
+                ?>
             </div>
         </div>
     </div>
 
     <?php
-    require('footer.php')
+    require('../utils/  footer.php')
     ?>
 
 

@@ -1,7 +1,7 @@
 <?php
     session_start();
     #unset($_SESSION['user']);
-    require('connection.php');
+    require('../utils/connection.php');
     #echo print_r($_SESSION['user']);
 ?>
 
@@ -17,16 +17,16 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-        <link rel="stylesheet" href="../../css/header.css" type="text/css">
-        <link rel="stylesheet" href="../../css/admin_create.css" type="text/css">
-        <link rel="stylesheet" href="../../css/footer.css" type="text/css">
+    <link rel="stylesheet" href="../../css/header.css" type="text/css">
+    <link rel="stylesheet" href="../../css/admin_staff_add.css" type="text/css">
+    <link rel="stylesheet" href="../../css/footer.css" type="text/css">
     <title>Main</title>
 </head>
 
 <body>
     <!-- ХЕДЕР -->
     <?php
-    require('header.php')
+    require('../utils/header.php')
     ?>
 
     <!-- Основная часть сайта-->
@@ -35,46 +35,60 @@
             <div class="content row">
                 <!-- часть с новостями-->
                 <div class="create col-8">
-                    <h4>Добавление статьи</h4>
-                    <form method="POST" action="admin_create_check.php" enctype="multipart/form-data">
+                    <h4>Добавление сотрудника</h4>
+                    <form method="POST" action="admin_staff_add_check.php">
                         <div class='field-name row'>
                             <div class='left-part col-2'>
-                                <p>Название:</p>
+                                <p>Фамилия:</p>
                             </div>
                             <div class='input-part col-10'>
-                                <textarea name="post-title" class="post-title-input"></textarea>
+                                <input name="last-name" type="text"></input>
                             </div>
                         </div>
                         <div class='field-name row'>
                             <div class='left-part col-2'>
-                                <p>Картинка:</p>
+                                <p>Имя:</p>
                             </div>
                             <div class='input-part col-10'>
-                                <input type="file" name="pic-path">
+                                <input type="text" name="first-name">
                             </div>
                         </div>
                         <div class='field-name row'>
                             <div class='left-part col-2'>
-                                <p>Статья важная?</p>
+                                <p>Логин:</p>
                             </div>
                             <div class='input-part col-10'>
-                                <input type="radio" class='post-input-radio' name='important' value='1'>Да   
-                                <input type="radio" class="post-input-radio" name='important' value='0'>Нет
+                                <input type="text" name="login">
                             </div>
                         </div>
                         <div class='field-name row'>
                             <div class='left-part col-2'>
-                                <p>Текст:</p>
+                                <p>Пароль:</p>
                             </div>
                             <div class='input-part col-10'>
-                                <textarea class='post-text-input' name="post-text"></textarea>
+                                <input type="text" name="password">
+                            </div>
+                        </div>
+                        <div class='field-name row'>
+                            <div class='left-part col-2'>
+                                <p>Email:</p>
+                            </div>
+                            <div class='input-part col-10'>
+                                <input type="text" name="email">
+                            </div>
+                        </div>
+                        <div class='field-name row'>
+                            <div class='left-part col-2'>
+                                <p>Должность:</p>
+                            </div>
+                            <div class='input-part col-10'>
+                                <input type="text" name="position">
                             </div>
                         </div>
                         <div class='field-name row'>
                             <div class="left-part col-2"></div>
                             <div class="input-part col-10">
-                                <input type="hidden" name="author_id" value="<?php echo $_SESSION['user']['id'];?>">
-                                <input class="post-submit" type="submit" value="Добавить статью">
+                                <input type="submit" value="Добавить сотрудника">
                             </div>
                         </div>
                     </form>
@@ -83,7 +97,7 @@
                 <div class="content-important col-4">
                     <h4>Профиль</h4>
                     <?php
-                        require('connection.php');
+                        // require('connection.php');
                         $author_profile_q_text = "SELECT COUNT(*) AS cnt,
                                                     MAX(post_date) as latest_post,
                                                     s.last_name, s.first_name
@@ -108,11 +122,12 @@
             </div>
         </div>
     </div>
-
-
+    
     <?php
-        require('footer.php');
+        require('../utils/footer.php');
     ?>
 
+
 </body>
+
 </html>

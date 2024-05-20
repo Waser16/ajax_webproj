@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('connection.php');
+require('../utils/connection.php');
 /*
 echo "<pre>";
 echo print_r($_POST);

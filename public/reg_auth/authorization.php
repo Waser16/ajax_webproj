@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require('connection.php');
+    require('../utils/connection.php');
     if ($_SESSION['user']) {
         header("Location: index.php");
     }
@@ -27,7 +27,7 @@
 
     <!-- ХЕДЕР -->
     <?php
-    require('header.php')
+    require('../utils/header.php')
     ?>
 
     <!-- Основная часть сайта-->
@@ -37,12 +37,12 @@
                 <div class="left-space col-4">
                 </div>
                 <div class="registration-form-containter col-4">
-                    <form class="registration-form" method="POST" action="autherization_check.php">
+                    <form class="registration-form" method="POST" action="authorization_check.php">
                         <label>Логин</label><br>
                         <input id="register-input" name='email' type="text" placeholder="example@mail.ru"><br>
                         <label>Пароль</label><br>
                         <input id="register-input" name='password' type="password" placeholder="Ваш пароль"><br>
-                        <input id="submit-input" type="submit" value="Войти"> 
+                        <input id="submit-input" type="submit" value="Войти">
                         <p>
                             Нет аккаунта? <a href="registration.php">Регистрация</a>
                         </p>
@@ -58,7 +58,7 @@
     </div>
 
     <?php
-    require('footer.php')
+    require('../utils/footer.php')
     ?>
 
 
