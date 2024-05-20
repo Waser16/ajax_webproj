@@ -1,7 +1,7 @@
 <pre>
     <?php
         session_start();
-        require('connection.php');
+        require('../utils/connection.php');
         #print_r($_POST);
 
         $last_name = $_POST['last-name'];
@@ -14,7 +14,9 @@
         if ($password == $password_check) {
             $q_text = "INSERT INTO  users ( last_name, first_name, login, email, password) 
                        VALUES ('{$last_name}', '{$first_name}','{$login}','{$email}','{$password}')";
+            echo $q_text;
             $q_ins = mysqli_query($db, $q_text);
+            echo $q_ins;
             if ($q_ins) {
                 $_SESSION['error_msg'] = "Регистрация прошла успешно";
                 header("Location: authorization.php");

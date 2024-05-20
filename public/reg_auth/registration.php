@@ -22,7 +22,7 @@
 <body>
     <!-- ХЕДЕР -->
     <?php
-    require('header.php')
+    require('../utils/header.php')
     ?>
 
     <!-- Основная часть сайта-->
@@ -34,18 +34,18 @@
                 <div class="registration-form-containter col-4">
                     <form class="registration-form" method="POST" action="registration_check.php">
                         <label>Фамилия</label><br>
-                        <input id="register-input" name='last-name' type="text  " placeholder="Иванов"><br>
+                        <input id="register-input" name='last-name' type="text  " placeholder="Иванов" required><br>
                         <label>Имя</label><br>
-                        <input id="register-input" name='first-name' type="text" placeholder="Иван"><br>
+                        <input id="register-input" name='first-name' type="text" placeholder="Иван" required><br>
                         <label>Логин</label><br>
-                        <input id="register-input" name='login' type="text" placeholder="Никнейм"><br>
+                        <input id="register-input" name='login' type="text" placeholder="Никнейм" required><br>
                         <label>Электронная почта</label><br>
-                        <input id="register-input" name='email' type="text" placeholder="example@mail.ru"><br>
+                        <input id="register-input" name='email' type="text" placeholder="example@mail.ru" required><br>
                         <label>Пароль</label><br>
-                        <input id="register-input" name='password' type="password" placeholder="Введите пароль"><br>
+                        <input id="register-input" name='password' type="password" placeholder="Введите пароль" required><br>
                         <label>Подтверждение пароля</label><br>
-                        <input id="register-input" name='password-check' type="password" placeholder="Подтвердите пароль"><br>
-                        <input id="submit-input" type="submit" value="Зарегистрироваться"> 
+                        <input id="register-input" name='password-check' type="password" placeholder="Подтвердите пароль" required><br>
+                        <input id="submit-input" type="submit" value="Зарегистрироваться">
                         <?php 
                             if ($_SESSION['error_msg']) {
                                 echo "<p id='error-msg-p'>" . $_SESSION['error_msg'] . "</p>";
@@ -61,7 +61,7 @@
     </div>
 
     <?php
-        require('footer.php');
+        require('../utils/footer.php');
     ?>
 
 </body>

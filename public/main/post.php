@@ -13,9 +13,9 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/header.css" type="text/css">
-    <link rel="stylesheet" href="../css/post.css" type="text/css">
-    <link rel="stylesheet" href="../css/footer.css" type="text/css">
+    <link rel="stylesheet" href="../../css/header.css" type="text/css">
+    <link rel="stylesheet" href="../../css/post.css" type="text/css">
+    <link rel="stylesheet" href="../../css/footer.css" type="text/css">
     <title>Post</title>
 </head>
 
@@ -33,7 +33,7 @@
                 <!-- часть с новостями-->
                 <div class="content-post col-8">
                 <?php
-                    require('connection.php');
+                    require('../utils/connection.php');
                     $post_id = $_GET['post_id'];
                     $post_q_text = "SELECT * 
                                 FROM posts p
@@ -61,7 +61,7 @@
                 <div class="content-important col-4">
                     <h4>Важные новости</h4>
                     <?php
-                        require('connection.php');
+                        require('../utils/connection.php');
                         $important_posts_q_text = "SELECT * 
                                                     FROM posts p
                                                     WHERE important = 1
@@ -83,7 +83,7 @@
     </div>
 
     <?php
-    require('footer.php')
+    require('../utils/footer.php')
     ?>
 
 </body>

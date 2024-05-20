@@ -71,7 +71,7 @@
                                 </div>
                                 <div class='post-text col-10'>
                                     <h5>
-                                        <a href='../../public/post.php?post_id=%s'>
+                                        <a href='../main/post.php?post_id=%s'>
                                             %s
                                         </a>
                                     </h5>
