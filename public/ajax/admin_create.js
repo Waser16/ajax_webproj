@@ -1,15 +1,10 @@
 $(document).ready( function () {
     console.log('test works');
 
-    $('[name=post-title]').change(function () {
-        console.log($(this).val());
-    })
-
     $('input[type=button]').click(function () {
         let postTitle = $('[name=post-title]').val();
-        // let picPath = $('[name=pic-path]').prop('files')[0];
-        var fileInput = $('[name=pic-path]')[0];
-        var picPath = fileInput.files[0];
+        let fileInput = $('[name=pic-path]')[0];
+        let picPath = fileInput.files[0];
         let isImportant = $('[name=important]').val();
         let postText = $('[name=post-text]').val();
         let authorId = $('[name=author_id]').val();
@@ -39,9 +34,25 @@ $(document).ready( function () {
             data: formData,
             success: function (data) {
                 console.log(data);
-                $('#ajax-status').html(`${data.short_path} <br> 
-                    ${data.path} <br>
-                    ${data.pic}`);
+                if (data.status_code) {
+                    let successHtml = `
+                        <p><u>Статус</u>: ${data.status}</p>
+                        <p><u>Название статьи</u>: ${data.post_title}</p>
+                        <p><u>Дата добавления</u>: ${data.add_datetime}</p>
+                        <p><u>Длина статьи</u>: ${data.post_len} символов</p>
+                    `;
+                    $('#ajax-status').html(successHtml);
+                    // $('#ajax-status').css({'border': '1px solid green'});
+                }
+                else {
+                    let errHtml = `
+                        <p><u>Статус</u>: ${data.status}</p>
+                        <p><u>Название статьи</u>: ${data.post_title}</p>
+                        <p><u>Дата попытки операции</u>: ${data.add_datetime}</p>
+                    `;
+                    $('#ajax-status').html(errHtml);
+                    // $('#ajax-status').css({'border': '1px solid red'});
+                }
             }
         })
     })

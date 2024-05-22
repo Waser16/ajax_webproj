@@ -15,11 +15,15 @@ echo "</pre>";
 
 $post_title = $_POST["post-title"];
 $post_text = $_POST["post-text"];
+$post_len = strlen($post_text);
 $important = $_POST['important'];
 $author_id = $_POST['author_id'];
+$add_datetime = date('d.m.Y h:m');
 
-
-$date = date("Y-m-d");
+// оффсет для того, чтобы были разные даты статей
+$current_date = date('Y-m-d');
+$random_date_offset = rand(0, 100);
+$date = date("Y-m-d", strtotime(`$current_date - $random_date_offset days`));
 
 $path = '../../images/'.$_FILES['pic-path']['name'];
 $pic_name = $_FILES['pic-path']['name'];
@@ -32,7 +36,7 @@ $insert_post_q_text = "INSERT INTO `posts`(`title`, `post_date`, `image_path`, `
 
 $insert_post_q = mysqli_query($db, $insert_post_q_text);
 
-if (true) {
+if ($insert_post_q) {
     $image = imagecreatefromjpeg($path);
     $preview_image = imagescale($image, 120, 80);
     $big_image = imagescale($image, 855);
@@ -41,14 +45,24 @@ if (true) {
     imagejpeg($big_image, $short_path . "_big.jpg");
     //header("Location: admin.php");
 
-
-
-    $res['status'] = 'Zaebumba';
-    echo json_encode(['status' => 'Zaebis', 'short_path' => $short_path, 'path' => $path]);
+    $post_len = strlen($post_text);
+    $res = [
+        'status_code'=> 1,
+        'status' => 'Статья успешно добавлена',
+        'post_title' => $post_title,
+        'add_datetime' => $add_datetime,
+        'post_len' => $post_len
+    ];
+    echo json_encode($res);
 }
 else {
-    $res['status'] = 'Govno';
-    echo json_encode(['status' => 'Govno', 'short_path' => $short_path, 'path' => $path]);
+    $res = [
+        'status_code'=> 0,
+        'status' => 'Произошла ошибка при добавлении',
+        'post_title' => $post_title,
+        'add_datetime' => $add_datetime,
+    ];
+    echo json_encode($res);
 }
 
 
