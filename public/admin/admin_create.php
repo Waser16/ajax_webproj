@@ -74,7 +74,7 @@
                             <div class="left-part col-2"></div>
                             <div class="input-part col-10">
                                 <input type="hidden" name="author_id" value="<?php echo $_SESSION['user']['id'];?>">
-                                <input class="post-submit" type="submit" value="Добавить статью">
+                                <input class="post-submit" type="button" value="Добавить статью">
                             </div>
                         </div>
                     </form>
