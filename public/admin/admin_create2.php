@@ -43,7 +43,7 @@ require('../utils/header.php')
                             <p>Название:</p>
                         </div>
                         <div class='input-part col-10'>
-                            <textarea name="post-title" class="post-title-input"></textarea>
+                            <textarea name="post-title" class="post-title-input" required></textarea>
                         </div>
                     </div>
                     <div class='field-name row'>
@@ -51,7 +51,7 @@ require('../utils/header.php')
                             <p>Картинка:</p>
                         </div>
                         <div class='input-part col-10'>
-                            <input type="file" name="pic-path">
+                            <input type="file" name="pic-path" required>
                         </div>
                     </div>
                     <div class='field-name row'>
@@ -59,7 +59,7 @@ require('../utils/header.php')
                             <p>Статья важная?</p>
                         </div>
                         <div class='input-part col-10'>
-                            <input type="radio" class='post-input-radio' name='important' value='1'>Да
+                            <input type="radio" class='post-input-radio' name='important' value='1' required>Да
                             <input type="radio" class="post-input-radio" name='important' value='0'>Нет
                         </div>
                     </div>
@@ -68,7 +68,7 @@ require('../utils/header.php')
                             <p>Текст:</p>
                         </div>
                         <div class='input-part col-10'>
-                            <textarea class='post-text-input' name="post-text"></textarea>
+                            <textarea class='post-text-input' name="post-text" required></textarea>
                         </div>
                     </div>
                     <div class='field-name row'>
@@ -79,6 +79,9 @@ require('../utils/header.php')
                         </div>
                     </div>
                 </form>
+                <div class="hidden-div-ajax col-8" >
+                    <a href="admin.php"><button class="post-submit">Назад в админ-панель</button></a>
+                </div>
             </div>
             <!-- профиль автора-->
             <div class="content-important col-4">

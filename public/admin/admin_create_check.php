@@ -17,19 +17,21 @@ $post_title = $_POST["post-title"];
 $post_text = $_POST["post-text"];
 $post_len = strlen($post_text);
 $important = $_POST['important'];
-$author_id = $_POST['author_id'];
+//$author_id = $_POST['author_id'];
+$author_id = $_SESSION['user']['id'];
 $add_datetime = date('d.m.Y h:m');
 
-// оффсет для того, чтобы были разные даты статей
-$current_date = date('Y-m-d');
-$random_date_offset = rand(0, 100);
-$date = date("Y-m-d", strtotime(`$current_date - $random_date_offset days`));
+//// оффсет для того, чтобы были разные даты статей
+//$current_date = date('Y-m-d');
+//$random_date_offset = rand(0, 100);
+//$date = date("Y-m-d", strtotime(`$current_date - $random_date_offset days`));
+$date = date("Y-m-d");
 
-$path = '../../images/'.$_FILES['pic-path']['name'];
-$pic_name = $_FILES['pic-path']['name'];
-$pic_name = substr($pic_name, 0, strlen($pic_name)-4);
+$path = '../../images/'.$_FILES['pic-path']['name']; // ../../images/example.jpg
+$pic_name = $_FILES['pic-path']['name']; // example.jpg
+$pic_name = substr($pic_name, 0, strlen($pic_name)-4); // example
 move_uploaded_file($_FILES['pic-path']['tmp_name'], $path);
-$short_path = substr($path, 0, strlen($path) - 4);
+$short_path = substr($path, 0, strlen($path) - 4); // ../../images/example
 
 $insert_post_q_text = "INSERT INTO `posts`(`title`, `post_date`, `image_path`, `post_text`, `author`, `important`)
      VALUES ('$post_title','$date','$pic_name','$post_text','$author_id','$important')";

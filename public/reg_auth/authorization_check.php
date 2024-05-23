@@ -15,7 +15,6 @@
         'id' => $mas['id'],
         'login' => $mas['login'],
         'email' => $mas['email'],
-        'login' => $mas['login'],
         'position' => $mas['position']
         ];
         header("Location: ../main/index.php");
@@ -25,4 +24,3 @@
         header("Location: authorization.php");
     }
 
-?>

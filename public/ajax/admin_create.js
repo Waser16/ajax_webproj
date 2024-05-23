@@ -9,6 +9,12 @@ $(document).ready( function () {
         let postText = $('[name=post-text]').val();
         let authorId = $('[name=author_id]').val();
 
+        if (!postTitle || !picPath || !isImportant || !postText || !authorId) {
+            let errorMessage = 'Вы не до конца заполнили форму!';
+            $('#ajax-status').html(`<p>${errorMessage}</p>`);
+            return
+        }
+
         console.log(postTitle, picPath, isImportant, postText);
         let formData = new FormData();
         formData.append('post-title', postTitle);
@@ -42,7 +48,8 @@ $(document).ready( function () {
                         <p><u>Длина статьи</u>: ${data.post_len} символов</p>
                     `;
                     $('#ajax-status').html(successHtml);
-                    // $('#ajax-status').css({'border': '1px solid green'});
+                    $('.hidden-div-ajax').show();
+                    $('.create form').fadeOut();
                 }
                 else {
                     let errHtml = `
@@ -51,7 +58,6 @@ $(document).ready( function () {
                         <p><u>Дата попытки операции</u>: ${data.add_datetime}</p>
                     `;
                     $('#ajax-status').html(errHtml);
-                    // $('#ajax-status').css({'border': '1px solid red'});
                 }
             }
         })

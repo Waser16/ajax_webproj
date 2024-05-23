@@ -1,8 +1,6 @@
 <?php
     session_start();
-    #unset($_SESSION['user']);
     require('../utils/connection.php');
-    #echo print_r($_SESSION['user']);
 ?>
 
 
@@ -99,7 +97,7 @@
                                         %s %s <br>
                                         Статей: %s <br>
                                         Дата последней статьи: %s <br>
-                                        <a href='admin_create.php'><b>Добавить статью</b></a>
+                                        <a href='admin_create2.php'><b>Добавить статью</b></a>
                                     </p>
                                 </div>    
                                 ", $mas['last_name'], $mas['first_name'], $mas['cnt'], $mas['latest_post']);
