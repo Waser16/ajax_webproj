@@ -14,9 +14,11 @@
 
     <!-- Bootstrap CSS -->
     <link href="../../css/bootstrap.css" rel="stylesheet">
-        <link rel="stylesheet" href="../../css/header.css" type="text/css">
-        <link rel="stylesheet" href="../../css/admin.css" type="text/css">
-        <link rel="stylesheet" href="../../css/footer.css" type="text/css">
+    <link rel="stylesheet" href="../../css/header.css" type="text/css">
+    <link rel="stylesheet" href="../../css/admin.css" type="text/css">
+    <link rel="stylesheet" href="../../css/footer.css" type="text/css">
+    <script src="../ajax/jq.js" type="text/javascript"></script>
+    <script src="../ajax/admin_delete.js" type="text/javascript"></script>
     <title>Main</title>
 </head>
 
@@ -64,14 +66,14 @@
                                 </div>
                                 <div class='post-text col-10'>
                                     <h5>
-                                        <a href='../main/post.php?post_id=%s'>
+                                        <a class='link-post-title' href='../main/post.php?post_id=%s'>
                                             %s
                                         </a>
                                     </h5>
-                                    <p>%s | <a href='admin_update.php?post_id=%s'>Изменить</a> | <a href='admin_delete.php?post_id=%s'>Удалить</a></p>
+                                    <p>%s | <a href='admin_update.php?post_id=%s'>Изменить</a> | <a class='link-delete' data-id='%s'>Удалить</a></p>
                                 </div>
                             </div>
-                        ", $mas['image_path'], $mas['id'], $mas['title'], $mas['post_date'], $mas['id'], $mas['id']);
+                        ", $mas['image_path'], $mas['id'], $mas['title'], $mas['post_date'], $mas['id'],  $mas['id']); // href='admin_delete.php?post_id=%s'
                         }
 
                     ?>
@@ -116,6 +118,9 @@
                                 ", $mas['last_name'], $mas['first_name'], $mas['cnt'], $mas['latest_post']);
                         }
                     ?>
+                    <div class="important row" id="ajax-status">
+
+                    </div>
                 </div>
             </div>
         </div>

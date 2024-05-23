@@ -19,7 +19,7 @@ $post_len = strlen($post_text);
 $important = $_POST['important'];
 //$author_id = $_POST['author_id'];
 $author_id = $_SESSION['user']['id'];
-$add_datetime = date('d.m.Y h:m');
+$add_datetime = date("d.m.Y H:i");
 
 //// оффсет для того, чтобы были разные даты статей
 //$current_date = date('Y-m-d');
