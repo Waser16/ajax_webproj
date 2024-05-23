@@ -344,7 +344,7 @@
     </div>
 
     <?php
-    require('../utils/  footer.php')
+    require('../utils/footer.php')
     ?>
 
 
