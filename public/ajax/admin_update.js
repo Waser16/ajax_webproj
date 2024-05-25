@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    let postId = $('[name=post-id]').val();
     let picInput = $('[name=pic-path]');
     let oldPicPath = picInput.data('path');
     let oldPostTitle = $('[name=post-title]').text();
@@ -29,6 +30,7 @@ $(document).ready(function() {
         }
 
         let formData = new FormData();
+        formData.append('post-id', postId);
         formData.append('post-title', newPostTitle);
         formData.append('post-text', newPostText);
         formData.append('important', newImportance);
@@ -42,6 +44,7 @@ $(document).ready(function() {
             dataType: 'json',
             data: formData,
             success: function (data) {
+                console.log(data);
                 if (data.status_code == 1) {
                     let successHtml = `
                         <p><u>Статус</u>: ${data.status}</p>
@@ -52,8 +55,23 @@ $(document).ready(function() {
                         <p>${data.short_path}</p>
                     `;
                     $('#ajax-status').html(successHtml);
-                    // $('.hidden-div-ajax').show();
-                    // $('.create form').fadeOut();
+
+                    $('.old-title .input-part').html(oldPostTitle);
+                    $('.new-title .input-part').html(newPostTitle);
+
+                    $('.old-image .input-part img').attr('src', `../../images/${oldPicPath}_rr.jpg`);
+                    $('.new-image .input-part img').attr('src', `../../images/${data.pic_name}_rr.jpg`);
+
+                    oldImportance = oldImportance === '1' ? 'Важная новость' : 'Не важная новость';
+                    $('.old-importance .input-part').html(oldImportance);
+                    newImportance = newImportance === '1' ? 'Важная новость' : 'Не важная новость';
+                    $('.new-importance .input-part').html(newImportance);
+
+                    $('.old-text .input-part').html(oldPostText);
+                    $('.new-text .input-part').html(newPostText);
+
+                    $('form').hide()
+                    $('.hidden-div-ajax').show();
                 }
                 else {
                     let errHtml = `
