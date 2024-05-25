@@ -24,6 +24,7 @@ ul li {
     padding-right: 10px;
 }
 
+
 /*
     настройки части с контентом
 */
@@ -52,16 +53,23 @@ ul li {
     height: 100px;
 }
 
-
-
-
-
 .input-part .post-submit {
     width: 100%;
     background-color: azure;
     border-radius: 5px;
     border: 1px solid gray;
 }
+
+/* Стилли скрытого дива для аякса */
+.ajax-hidden-div {
+    display: none;
+}
+
+.new {
+    border-bottom: 1px solid black;
+    background-color: antiquewhite;
+}
+
 
 
 

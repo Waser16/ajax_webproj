@@ -33,6 +33,8 @@
     <link rel="stylesheet" href="../../css/header.css" type="text/css">
         <link rel="stylesheet" href="../../css/admin_staff_update.css" type="text/css">
         <link rel="stylesheet" href="../../css/footer.css" type="text/css">
+    <script type="text/javascript" src="../ajax/jq.js"></script>
+    <script type="text/javascript" src="../ajax/admin_staff_update.js"></script>
     <title>Main</title>
 </head>
 
@@ -49,7 +51,8 @@
                 <!-- часть с новостями-->
                 <div class="create col-8">
                     <h4>Изменение данных сотрудника</h4>
-                    <form method="POST" action="admin_staff_update_check.php">
+                    <form>
+                        <input type="hidden" name="staff-id" value="<?php echo $id ?>">
                         <div class='field-name row'>
                             <div class='left-part col-2'>
                                 <p>Фамилия:</p>
@@ -102,10 +105,121 @@
                             <div class="left-part col-2"></div>
                             <div class="input-part col-10">
                                 <input type="hidden" name="id" value="<?php echo $id;?>">
-                                <input class="post-submit" type="submit" value="Обновить данные сотрудника">
+                                <input class="post-submit" type="button" value="Обновить данные сотрудника">
                             </div>
                         </div>
                     </form>
+
+                    <!-- СРАВНЕНИЕ ДАННЫХ АЯКС -->
+                    <div class="ajax-hidden-div col-12">
+                        <!-- ФАМИЛИИ -->
+                        <div class="old-last-name old row">
+                            <div class="left-part col-2">
+                                <p>Старая фамилия:</p>
+                            </div>
+                            <div class="input-part col-10">
+
+                            </div>
+                        </div>
+                        <div class="new-last-name new row">
+                            <div class="left-part col-2">
+                                <p>Новая фамилия:</p>
+                            </div>
+                            <div class="input-part col-10">
+
+                            </div>
+                        </div>
+
+                        <!-- ИМЯ -->
+                        <div class="old-first-name old row">
+                            <div class="left-part col-2">
+                                <p>Старое имя:</p>
+                            </div>
+                            <div class="input-part col-10">
+
+                            </div>
+                        </div>
+                        <div class="new-first-name new row">
+                            <div class="left-part col-2">
+                                <p>Новое имя:</p>
+                            </div>
+                            <div class="input-part col-10">
+
+                            </div>
+                        </div>
+                        <!-- ЛОГИН -->
+                        <div class="old-login old row">
+                            <div class="left-part col-2">
+                                <p>Старый логин:</p>
+                            </div>
+                            <div class="input-part col-10">
+
+                            </div>
+                        </div>
+                        <div class="new-login new row">
+                            <div class="left-part col-2">
+                                <p>Новый логин:</p>
+                            </div>
+                            <div class="input-part col-10">
+
+                            </div>
+                        </div>
+                        <!-- ПАРОЛЬ -->
+                        <div class="old-password old row">
+                            <div class="left-part col-2">
+                                <p>Старый пароль:</p>
+                            </div>
+                            <div class="input-part col-10">
+
+                            </div>
+                        </div>
+                        <div class="new-password new row">
+                            <div class="left-part col-2">
+                                <p>Новый пароль</p>
+                            </div>
+                            <div class="input-part col-10">
+
+                            </div>
+                        </div>
+                        <!-- ИМЕЙЛ -->
+                        <div class="old-email old row">
+                            <div class="left-part col-2">
+                                <p>Старое имя:</p>
+                            </div>
+                            <div class="input-part col-10">
+
+                            </div>
+                        </div>
+                        <div class="new-email new row">
+                            <div class="left-part col-2">
+                                <p>Новый Email:</p>
+                            </div>
+                            <div class="input-part col-10">
+
+                            </div>
+                        </div>
+                        <!-- ДОЛЖНОСТЬ -->
+                        <div class="old-position old row">
+                            <div class="left-part col-2">
+                                <p>Старая должность:</p>
+                            </div>
+                            <div class="input-part col-10">
+
+                            </div>
+                        </div>
+                        <div class="new-position new row">
+                            <div class="left-part col-2">
+                                <p>Новая должность:</p>
+                            </div>
+                            <div class="input-part col-10">
+
+                            </div>
+                        </div>
+
+                        <a href="admin_staff.php">
+                            <button class="post-submit">Назад в админ-панель сотрудников</button>
+                        </a>
+                    </div>
                 </div>
                 <!-- профиль автора-->
                 <div class="content-important col-4">
@@ -145,6 +259,9 @@
                                 ", $mas['last_name'], $mas['first_name'], $mas['cnt'], $mas['latest_post']);
                         }
                     ?>
+                    <div class='important row' id="ajax-status">
+
+                    </div>
                 </div>
             </div>
         </div>
