@@ -5,7 +5,7 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $auth_q_text = "SELECT * FROM staff WHERE email = '{$email}' and password = '{$password}'";
+    $auth_q_text = "SELECT * FROM `staff` WHERE `email` = '$email' and `password` = '$password'";
     $auth_q = mysqli_query($db, $auth_q_text);
 
     if (mysqli_num_rows($auth_q) == 1) {

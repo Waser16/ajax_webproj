@@ -52,7 +52,7 @@
             <div class="content row">
                 <!-- часть с новостями-->
                 <div class="create col-8">
-                    <h4>Добавление статьи</h4>
+                    <h4>Изменение статьи</h4>
                     <form method="POST" action="" enctype="multipart/form-data">
                         <div class='field-name row'>
                             <div class='left-part col-2'>
@@ -84,7 +84,11 @@
                                 <p>Текст:</p>
                             </div>
                             <div class='input-part col-10'>
-                                <textarea class='post-text-input' name="post-text"><?php echo $post_text;?></textarea>
+                                <textarea class='post-text-input' name="post-text"><?php
+                                         $no_html_text = str_replace(["<p>", "</p>"], ["", "\n"],$post_text);
+                                         echo $no_html_text;
+                                         ?>
+                                </textarea>
                             </div>
                         </div>
                         <div class='field-name row'>

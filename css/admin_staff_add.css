@@ -50,6 +50,16 @@ ul li {
     width: 40%;
 }
 
+.hidden-div-ajax {
+    display: none;
+}
+
+.hidden-div-ajax a button {
+    width: 100%;
+    background-color: azure;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
 
 /* сайдбар с профилем пользователя */
 .content-important  h4 {

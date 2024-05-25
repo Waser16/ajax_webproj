@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="../../css/header.css">
     <link rel="stylesheet" href="../../css/autherization.css">
     <link rel="stylesheet" href="../../css/footer.css">
+    <script type="text/javascript" src="../ajax/jq.js"></script>
+    <script type="text/javascript" src="../ajax/authorization.js"></script>
     <title>Чемпионат</title>
 </head>
 
@@ -38,10 +40,10 @@
                 <div class="registration-form-containter col-4">
                     <form class="registration-form" method="POST" action="authorization_check.php">
                         <label>Логин</label><br>
-                        <input id="register-input" name='email' type="text" placeholder="example@mail.ru"><br>
+                        <input class="register-input" name='email' type="text" placeholder="example@mail.ru"><br>
                         <label>Пароль</label><br>
-                        <input id="register-input" name='password' type="password" placeholder="Ваш пароль"><br>
-                        <input id="submit-input" type="submit" value="Войти">
+                        <input class="register-input" name='password' type="password" placeholder="Ваш пароль"><br>
+                        <input class="submit-input" type="submit" value="Войти">
                         <p>
                             Нет аккаунта? <a href="registration.php">Регистрация</a>
                         </p>

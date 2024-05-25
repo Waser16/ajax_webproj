@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="../../css/header.css" type="text/css">
     <link rel="stylesheet" href="../../css/admin_staff_add.css" type="text/css">
     <link rel="stylesheet" href="../../css/footer.css" type="text/css">
+    <script type="text/javascript" src="../ajax/jq.js"></script>
+    <script type="text/javascript" src="../ajax/admin_staff_add.js"></script>
     <title>Main</title>
 </head>
 
@@ -35,13 +37,13 @@
                 <!-- часть с новостями-->
                 <div class="create col-8">
                     <h4>Добавление сотрудника</h4>
-                    <form method="POST" action="admin_staff_add_check.php">
+                    <form>
                         <div class='field-name row'>
                             <div class='left-part col-2'>
                                 <p>Фамилия:</p>
                             </div>
                             <div class='input-part col-10'>
-                                <input name="last-name" type="text"></input>
+                                <input name="last-name" type="text" required></input>
                             </div>
                         </div>
                         <div class='field-name row'>
@@ -49,7 +51,7 @@
                                 <p>Имя:</p>
                             </div>
                             <div class='input-part col-10'>
-                                <input type="text" name="first-name">
+                                <input type="text" name="first-name" required>
                             </div>
                         </div>
                         <div class='field-name row'>
@@ -57,7 +59,7 @@
                                 <p>Логин:</p>
                             </div>
                             <div class='input-part col-10'>
-                                <input type="text" name="login">
+                                <input type="text" name="login" required>
                             </div>
                         </div>
                         <div class='field-name row'>
@@ -65,7 +67,7 @@
                                 <p>Пароль:</p>
                             </div>
                             <div class='input-part col-10'>
-                                <input type="text" name="password">
+                                <input type="text" name="password" required>
                             </div>
                         </div>
                         <div class='field-name row'>
@@ -73,7 +75,7 @@
                                 <p>Email:</p>
                             </div>
                             <div class='input-part col-10'>
-                                <input type="text" name="email">
+                                <input type="text" name="email" required>
                             </div>
                         </div>
                         <div class='field-name row'>
@@ -81,16 +83,19 @@
                                 <p>Должность:</p>
                             </div>
                             <div class='input-part col-10'>
-                                <input type="text" name="position">
+                                <input type="text" name="position" required>
                             </div>
                         </div>
                         <div class='field-name row'>
                             <div class="left-part col-2"></div>
                             <div class="input-part col-10">
-                                <input type="submit" value="Добавить сотрудника">
+                                <input type="button" value="Добавить сотрудника">
                             </div>
                         </div>
                     </form>
+                    <div class="hidden-div-ajax col-8" >
+                        <a href="admin_staff.php"><button class="post-submit">Назад в админ-панель</button></a>
+                    </div>
                 </div>
                 <!-- профиль автора-->
                 <div class="content-important col-4">
@@ -117,6 +122,9 @@
                                 ", $mas['last_name'], $mas['first_name'], $mas['cnt'], $mas['latest_post']);
                             }
                     ?>
+                    <div class="important row" id="ajax-status">
+
+                    </div>
                 </div>
             </div>
         </div>

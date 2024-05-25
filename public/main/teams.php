@@ -30,9 +30,9 @@
             <div class="content row">
                 <!-- часть с командами-->
                 <div class="team-container col-8">
-                    <h4>Формула 1, сезон 2023: Составы команд</h4>
+                    <h4>Формула 1, сезон 2024: Составы команд</h4>
                     <div class="championship-image img-fluid">
-                        <img src="../../images/championship_2_rr.jpg">
+                        <img src="../../images/championship_2_big.jpg">
                     </div>
                     <div class="team row">
                         <p>ORACLE RED BULL RACING</p>

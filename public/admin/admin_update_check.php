@@ -26,11 +26,11 @@ $pic_name = substr($pic_name, 0, strlen($pic_name) - 4);
 move_uploaded_file($_FILES['pic-path']['tmp_name'], $path);
 $short_path = substr($path, 0, strlen($path) - 4);
 
-$update_post_q_text = "UPDATE posts 
-                        SET  title ='{$post_title}', post_date ='$date',
-                        image_path ='$short_path', post_text ='{$post_text}',
-                        author ='$author_id',  important='$important' 
-                        WHERE id = '{$post_id}'";
+$update_post_q_text = "UPDATE `posts`
+                        SET  `title`='$post_title', `post_date`='$date',
+                        `image_path`='$short_path', `post_text`='$post_text',
+                        `author`='$author_id',  `important`='$important' 
+                        WHERE `id`='$post_id'";
 
 $update_post_q = mysqli_query($db, $update_post_q_text);
 

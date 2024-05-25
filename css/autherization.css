@@ -57,14 +57,14 @@ label {
     margin-top: 10px;
 }
 
-#register-input  {
+.register-input  {
     width:  75%;
     height: 40px;
     border: none;
     border-bottom: 1px solid green;
 }
 
-#submit-input {
+.submit-input {
     height: 40px;
     width: 75%;
     margin: 20px 0;

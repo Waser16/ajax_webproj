@@ -40,8 +40,6 @@
                                 WHERE p.id = '{$post_id}'";
                     $post_q = mysqli_query($db, $post_q_text);
                     $mas = mysqli_fetch_array($post_q);
-                    #$vd = var_dump($mas);
-                    #echo "<pre> . {$vd} . </pre>";
                     printf("<h4>%s</h4>
                     <p> %s %s | %s</p>
                     <div class='post row'>
@@ -49,7 +47,7 @@
                             <img src='../../images/%s_big.jpg'>
                         </div>
                         <div class='post-text'>
-                            <p>%s</p>
+                            %s
                         </div>
                     </div>
                 ", $mas['title'], $mas['first_name'], $mas['last_name'], $mas['post_date'], 

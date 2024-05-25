@@ -30,7 +30,7 @@
         <div class="content row">
             <!-- часть с новостями-->
             <div class="content-schedule col-8">
-                <h4>Формула 1, сезон 2023: Календарь чемпионата</h4>
+                <h4>Формула 1, сезон 2024: Календарь чемпионата</h4>
                 <div class="championship-image">
                     <img src="../../images/f1_logo_big.jpg">
                 </div>

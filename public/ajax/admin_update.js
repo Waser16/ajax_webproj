@@ -34,36 +34,36 @@ $(document).ready(function() {
         formData.append('important', newImportance);
         formData.append('pic-path', newPicPath)
 
-        // $.ajax({
-        //     url: '../admin/admin_update_check.php',
-        //     method: 'POST',
-        //     processData: false,
-        //     contentType: false,
-        //     dataType: 'json',
-        //     data: formData,
-        //     success: function (data) {
-        //         if (data.status_code == 1) {
-        //             let successHtml = `
-        //                 <p><u>Статус</u>: ${data.status}</p>
-        //                 <p><u>Название статьи</u>: ${data.post_title}</p>
-        //                 <p><u>Дата добавления</u>: ${data.upd_time}</p>
-        //                 <p>${data.pic_name}</p>
-        //                 <p>${data.path}</p>
-        //                 <p>${data.short_path}</p>
-        //             `;
-        //             $('#ajax-status').html(successHtml);
-        //             // $('.hidden-div-ajax').show();
-        //             // $('.create form').fadeOut();
-        //         }
-        //         else {
-        //             let errHtml = `
-        //                 <p><u>Статус</u>: ${data.status}</p>
-        //                 <p><u>Название статьи</u>: ${data.post_title}</p>
-        //                 <p><u>Дата попытки операции</u>: ${data.upd_time}</p>
-        //             `;
-        //             $('#ajax-status').html(errHtml);
-        //         }
-        //     }
-        // });
+        $.ajax({
+            url: '../admin/admin_update_check.php',
+            method: 'POST',
+            processData: false,
+            contentType: false,
+            dataType: 'json',
+            data: formData,
+            success: function (data) {
+                if (data.status_code == 1) {
+                    let successHtml = `
+                        <p><u>Статус</u>: ${data.status}</p>
+                        <p><u>Название статьи</u>: ${data.post_title}</p>
+                        <p><u>Дата добавления</u>: ${data.upd_time}</p>
+                        <p>${data.pic_name}</p>
+                        <p>${data.path}</p>
+                        <p>${data.short_path}</p>
+                    `;
+                    $('#ajax-status').html(successHtml);
+                    // $('.hidden-div-ajax').show();
+                    // $('.create form').fadeOut();
+                }
+                else {
+                    let errHtml = `
+                        <p><u>Статус</u>: ${data.status}</p>
+                        <p><u>Название статьи</u>: ${data.post_title}</p>
+                        <p><u>Дата попытки операции</u>: ${data.upd_time}</p>
+                    `;
+                    $('#ajax-status').html(errHtml);
+                }
+            }
+        });
     })
 })
