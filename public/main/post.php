@@ -49,7 +49,7 @@
                             <img src='../../images/%s_big.jpg'>
                         </div>
                         <div class='post-text'>
-                            %s
+                            <p>%s</p>
                         </div>
                     </div>
                 ", $mas['title'], $mas['first_name'], $mas['last_name'], $mas['post_date'], 

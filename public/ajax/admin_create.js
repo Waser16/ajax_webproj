@@ -7,6 +7,13 @@ $(document).ready( function () {
         let picPath = fileInput.files[0];
         let isImportant = $('[name=important]').val();
         let postText = $('[name=post-text]').val();
+        let splitText = postText.split('\n');
+
+        for(let i = 0; i < splitText.length; i++) {
+            splitText[i] = `<p>${splitText[i]}</p>`;
+        }
+        postText = splitText.join('');
+
         let authorId = $('[name=author_id]').val();
 
         if (!postTitle || !picPath || !isImportant || !postText || !authorId) {
