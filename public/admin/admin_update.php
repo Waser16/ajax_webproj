@@ -34,6 +34,8 @@
     <link rel="stylesheet" href="../../css/header.css" type="text/css">
         <link rel="stylesheet" href="../../css/admin_update.css" type="text/css">
         <link rel="stylesheet" href="../../css/footer.css" type="text/css">
+    <script type="text/javascript" src="../ajax/jq.js"></script>
+    <script type="text/javascript" src="../ajax/admin_update.js"></script>
     <title>Main</title>
 </head>
 
@@ -51,7 +53,7 @@
                 <!-- часть с новостями-->
                 <div class="create col-8">
                     <h4>Добавление статьи</h4>
-                    <form method="POST" action="admin_update_check.php" enctype="multipart/form-data">
+                    <form method="POST" action="" enctype="multipart/form-data">
                         <div class='field-name row'>
                             <div class='left-part col-2'>
                                 <p>Название:</p>
@@ -65,7 +67,7 @@
                                 <p>Картинка:</p>
                             </div>
                             <div class='input-part col-10'>
-                                <input type="file" name="pic-path">
+                                <input type="file" name="pic-path" data-path="<?php echo $image_path ?>">
                             </div>
                         </div>
                         <div class='field-name row'>
@@ -90,7 +92,7 @@
                             <div class="input-part col-10">
                                 <input type="hidden" name="author_id" value="<?php echo $_SESSION['user']['id'];?>">
                                 <input type="hidden" name="post_id" value='<?php echo $post_id;?>'>
-                                <input class="post-submit" type="submit" value="Изменить статью">
+                                <input class="post-submit" type="button" value="Изменить статью">
                             </div>
                         </div>
                     </form>
@@ -133,6 +135,9 @@
                                 ", $mas['last_name'], $mas['first_name'], $mas['cnt'], $mas['latest_post']);
                         }
                     ?>
+                   <div class="important row" id="ajax-status">
+
+                   </div>
                 </div>
             </div>
         </div>
