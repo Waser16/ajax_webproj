@@ -15,8 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="../../css/bootstrap.css" rel="stylesheet">
         <link rel="stylesheet" href="../../css/header.css" type="text/css">
         <link rel="stylesheet" href="../../css/admin_create.css" type="text/css">
         <link rel="stylesheet" href="../../css/footer.css" type="text/css">
@@ -74,7 +73,7 @@
                             <div class="left-part col-2"></div>
                             <div class="input-part col-10">
                                 <input type="hidden" name="author_id" value="<?php echo $_SESSION['user']['id'];?>">
-                                <input class="post-submit" type="submit" value="Добавить статью">
+                                <input class="post-submit" type="button" value="Добавить статью">
                             </div>
                         </div>
                     </form>

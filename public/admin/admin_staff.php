@@ -15,11 +15,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-        <link rel="stylesheet" href="../../css/header.css" type="text/css">
+    <link href="../../css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/header.css" type="text/css">
         <link rel="stylesheet" href="../../css/admin_staff.css" type="text/css">
         <link rel="stylesheet" href="../../css/footer.css" type="text/css">
+    <script type="text/javascript" src="../ajax/jq.js"></script>
+    <script type="text/javascript" src="../ajax/admin_staff_delete.js"></script>
     <title>Main</title>
 </head>
 
@@ -39,14 +40,15 @@
                     <h4>Панель для администрации</h4>
                     <?php
                         // require('connection.php');
-                        $staff_q_text = "SELECT * FROM staff";
+                        $staff_q_text = "SELECT * FROM `staff`";
                         $staff_q = mysqli_query($db, $staff_q_text);
                         while ($mas = mysqli_fetch_array($staff_q)) {
                             printf(
                                     "<div class='staff row'>
                                         <div class='staff-data col-4'>
-                                            <p>%s %s<br>
-                                                %s
+                                            <p>
+                                                <span class='staff-name'>%s %s</span><br>
+                                                <span class='staff-position'>%s</span>
                                             </p> 
                                         </div>
                                         <div class='staff-data col-4'>
@@ -61,7 +63,7 @@
                                             </p>
                                         </div>
                                         <div class='staff-action col-2'>
-                                                <br><a href='admin_staff_delete.php?id=%s'>Удалить </a>
+                                                <br><a class='link-delete' data-id='%s'>Удалить </a>
                                         </div>
                                     </div>    
                                     ", $mas['last_name'], $mas['first_name'], $mas['position'], $mas['login'], 
@@ -95,6 +97,7 @@
                             ", $mas['last_name'], $mas['first_name'], $mas['cnt'], $mas['latest_post']
                         );
                     ?>
+                    <div class="important row" id="ajax-status"></div>
                 </div>
             </div>
         </div>

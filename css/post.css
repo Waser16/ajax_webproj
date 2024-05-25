@@ -34,8 +34,13 @@ ul li {
 /*
     настройки части с контентом
 */
+.main-fluid {
+    background-color: #FEEFE9;
+}
+
 .main-container {
     margin-bottom: 50px;
+    background-color: white;
 }
 
 .content-post  h4 {

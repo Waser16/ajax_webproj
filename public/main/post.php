@@ -11,8 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="../../css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/header.css" type="text/css">
     <link rel="stylesheet" href="../../css/post.css" type="text/css">
     <link rel="stylesheet" href="../../css/footer.css" type="text/css">
@@ -41,8 +40,6 @@
                                 WHERE p.id = '{$post_id}'";
                     $post_q = mysqli_query($db, $post_q_text);
                     $mas = mysqli_fetch_array($post_q);
-                    #$vd = var_dump($mas);
-                    #echo "<pre> . {$vd} . </pre>";
                     printf("<h4>%s</h4>
                     <p> %s %s | %s</p>
                     <div class='post row'>

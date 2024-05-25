@@ -1,8 +1,6 @@
 <?php
     session_start();
-    #unset($_SESSION['user']);
     require('../utils/connection.php');
-    #echo print_r($_SESSION['user']);
 ?>
 
 
@@ -15,19 +13,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-        <link rel="stylesheet" href="../../css/header.css" type="text/css">
-        <link rel="stylesheet" href="../../css/admin.css" type="text/css">
-        <link rel="stylesheet" href="../../css/footer.css" type="text/css">
+    <link href="../../css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/header.css" type="text/css">
+    <link rel="stylesheet" href="../../css/admin.css" type="text/css">
+    <link rel="stylesheet" href="../../css/footer.css" type="text/css">
+    <script src="../ajax/jq.js" type="text/javascript"></script>
+    <script src="../ajax/admin_delete.js" type="text/javascript"></script>
     <title>Main</title>
 </head>
 
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-        crossorigin="anonymous"></script>
-
     <!-- ХЕДЕР -->
     <?php
     require('../utils/header.php')
@@ -71,14 +66,14 @@
                                 </div>
                                 <div class='post-text col-10'>
                                     <h5>
-                                        <a href='../main/post.php?post_id=%s'>
+                                        <a class='link-post-title' href='../main/post.php?post_id=%s'>
                                             %s
                                         </a>
                                     </h5>
-                                    <p>%s | <a href='admin_update.php?post_id=%s'>Изменить</a> | <a href='admin_delete.php?post_id=%s'>Удалить</a></p>
+                                    <p>%s | <a href='admin_update.php?post_id=%s'>Изменить</a> | <a class='link-delete' data-id='%s'>Удалить</a></p>
                                 </div>
                             </div>
-                        ", $mas['image_path'], $mas['id'], $mas['title'], $mas['post_date'], $mas['id'], $mas['id']);
+                        ", $mas['image_path'], $mas['id'], $mas['title'], $mas['post_date'], $mas['id'],  $mas['id']); // href='admin_delete.php?post_id=%s'
                         }
 
                     ?>
@@ -104,7 +99,7 @@
                                         %s %s <br>
                                         Статей: %s <br>
                                         Дата последней статьи: %s <br>
-                                        <a href='admin_create.php'><b>Добавить статью</b></a>
+                                        <a href='admin_create2.php'><b>Добавить статью</b></a>
                                     </p>
                                 </div>    
                                 ", $mas['last_name'], $mas['first_name'], $mas['cnt'], $mas['latest_post']);
@@ -116,13 +111,16 @@
                                         %s %s <br>
                                         Статей: %s <br>
                                         Дата последней статьи: %s <br>
-                                        <a href='admin_create.php'><b>Добавить статью</b></a><br>
+                                        <a href='admin_create2.php'><b>Добавить статью</b></a><br>
                                         <a href='admin_staff.php'><b>Аккаунты сотрудников</b></a><br>
                                     </p>
                                 </div>    
                                 ", $mas['last_name'], $mas['first_name'], $mas['cnt'], $mas['latest_post']);
                         }
                     ?>
+                    <div class="important row" id="ajax-status">
+
+                    </div>
                 </div>
             </div>
         </div>
