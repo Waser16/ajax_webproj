@@ -55,6 +55,7 @@
                     <h4>Изменение статьи</h4>
                     <form method="POST" action="" enctype="multipart/form-data">
                         <div class='field-name row'>
+                            <input type="hidden" name="post-id" value="<?php echo $post_id?>">
                             <div class='left-part col-2'>
                                 <p>Название:</p>
                             </div>
@@ -100,6 +101,84 @@
                             </div>
                         </div>
                     </form>
+
+
+                    <!-- ПОКАЗ СТАРЫХ И НОВЫХ ДАННЫХ ПОСЛЕ АПДЕЙТА-->
+                    <div class="hidden-div-ajax col-12" >
+                        <!-- TITLES -->
+                        <div class="old-title row">
+                            <div class="left-part col-2">
+                                <p>Старое название:</p>
+                            </div>
+                            <div class="input-part col-10">
+
+                            </div>
+                        </div>
+                        <div class="new-title row">
+                            <div class="left-part col-2">
+                                <p>Новое название:</p>
+                            </div>
+                            <div class="input-part col-10">
+
+                            </div>
+                        </div>
+
+                        <!-- IMAGES -->
+                        <div class="old-image row">
+                            <div class="left-part col-2">
+                                <p>Старая картинка:</p>
+                            </div>
+                            <div class="input-part col-10">
+                                <img src="">
+                            </div>
+                        </div>
+                        <div class="new-image row">
+                            <div class="left-part col-2">
+                                <p>Новая картинка:</p>
+                            </div>
+                            <div class="input-part col-10">
+                                <img src="">
+                            </div>
+                        </div>
+
+                        <!-- IMPORTANCE -->
+                        <div class="old-importance row">
+                            <div class="left-part col-2">
+                                <p>Старая важность:</p>
+                            </div>
+                            <div class="input-part col-10">
+
+                            </div>
+                        </div>
+                        <div class="new-importance row">
+                            <div class="left-part col-2">
+                                <p>Новая важность:</p>
+                            </div>
+                            <div class="input-part col-10">
+
+                            </div>
+                        </div>
+
+                        <!-- POST TEXT -->
+                        <div class="old-text row">
+                            <div class="left-part col-2">
+                                <p>Старый текст:</p>
+                            </div>
+                            <div class="input-part col-10">
+
+                            </div>
+                        </div>
+                        <div class="new-text row">
+                            <div class="left-part col-2">
+                                <p>Новый текст:</p>
+                            </div>
+                            <div class="input-part col-10">
+
+                            </div>
+                        </div>
+
+                        <a href="admin.php"><button class="post-submit">Назад в админ-панель</button></a>
+                    </div>
                 </div>
                <!-- профиль автора-->
                <div class="content-important col-4">
